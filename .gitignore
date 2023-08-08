@@ -70,3 +70,9 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+SimpleRPG/Library/
+SimpleRPG/Logs/
+SimpleRPG/.vsconfig
+SimpleRPG/Temp/
+SimpleRPG/UserSettings/
+SimpleRPG/obj/
