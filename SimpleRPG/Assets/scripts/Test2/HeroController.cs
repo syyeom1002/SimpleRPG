@@ -18,7 +18,7 @@ namespace Test2
         private MonsterController target;
         private int attackDamage = 1;
 
-        public float Radius
+        public float Radius//(Á¶½É)
         {
             get
             {

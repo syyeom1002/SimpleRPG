@@ -76,8 +76,6 @@ namespace Test
                     }
                 }
                 
-                
-                
                 yield return null;//다음 프레임 시작 
             }
             Debug.Log("<color=yellow>도착</color>");

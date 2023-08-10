@@ -231,7 +231,7 @@ GameObject:
   - component: {fileID: 891585925}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -352,6 +352,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d7007ed7b1aed4429d128da06a410c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  heroController: {fileID: 7030221393675569688}
 --- !u!4 &1023757748
 Transform:
   m_ObjectHideFlags: 0
@@ -452,8 +453,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2020221224}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: -0.21935643, y: 0.71301126, z: -0.25407246, w: -0.615585}
+  m_LocalPosition: {x: 3.455581, y: 2.8038125, z: 1.0482144}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -763,6 +764,7 @@ GameObject:
   - component: {fileID: 7030221393675569687}
   - component: {fileID: 4169586601998451942}
   - component: {fileID: 7030221393675569688}
+  - component: {fileID: 7030221393675569689}
   m_Layer: 0
   m_Name: HeroPrefab
   m_TagString: Untagged
@@ -1823,9 +1825,10 @@ GameObject:
   - component: {fileID: 2780270441487559250}
   - component: {fileID: 729117049299191157}
   - component: {fileID: 3224612251223363442}
+  - component: {fileID: 3224612251223363443}
   m_Layer: 0
   m_Name: TurtlePrefab
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1842,6 +1845,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1db0cd85d688c7e4e8140059d5969f34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  radius: 1
+  heroController: {fileID: 7030221393675569688}
+--- !u!135 &3224612251223363443
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3224612251223363441}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.68
+  m_Center: {x: 0, y: 0.19, z: -0.07}
 --- !u!4 &3339861167262827797
 Transform:
   m_ObjectHideFlags: 0
@@ -2246,7 +2272,7 @@ Animator:
   m_GameObject: {fileID: 6365559246498141552}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 56fc0b4f7d154039a7099564596a545b, type: 3}
-  m_Controller: {fileID: 9100000, guid: 9bbcf96c9a254c5ba654027c656d7b39, type: 2}
+  m_Controller: {fileID: 9100000, guid: 509e43b1e68d6f0419b8e6cd0221ed77, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -3244,9 +3270,10 @@ GameObject:
   - component: {fileID: 2472229483915942751}
   - component: {fileID: 4180244885007480260}
   - component: {fileID: 6365559246498141553}
+  - component: {fileID: 6365559246498141554}
   m_Layer: 0
   m_Name: SlimePrefab
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3263,6 +3290,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1db0cd85d688c7e4e8140059d5969f34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  radius: 1
+  heroController: {fileID: 7030221393675569688}
+--- !u!135 &6365559246498141554
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6365559246498141552}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.57
+  m_Center: {x: 0, y: 0.33, z: 0}
 --- !u!1 &6371701675691793265
 GameObject:
   m_ObjectHideFlags: 0
@@ -3496,7 +3546,7 @@ Transform:
   m_GameObject: {fileID: 726581979794207971}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.45}
+  m_LocalPosition: {x: 0, y: 0, z: -0.13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3516,6 +3566,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94d5578d59649f24592f9a67fb1e0c4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  radius: 1
+--- !u!136 &7030221393675569689
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726581979794207971}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.46
+  m_Height: 1.38
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.66, z: 0}
 --- !u!4 &7122638195290625501
 Transform:
   m_ObjectHideFlags: 0
