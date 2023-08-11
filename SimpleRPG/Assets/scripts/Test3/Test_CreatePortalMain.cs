@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Test3
 {
@@ -18,8 +19,10 @@ namespace Test3
         private List<ItemController> itemList;
         [SerializeField]
         private GameObject portalPrefab;
+        [SerializeField]
+        private Image fadeout;
 
-
+        private bool isExisted = true;
         // Start is called before the first frame update
         void Start()
         {
@@ -48,12 +51,19 @@ namespace Test3
             }
             this.itemList = new List<ItemController>();
 
+            
 
         }
         private void CreateHero()
         {
             GameObject heroGo = Instantiate(this.heroPrefab);
             this.heroController = heroGo.GetComponent<HeroController>();
+            this.heroController.onTriggerPortal = () => {
+
+                this.StartCoroutine(this.FadeOut());
+
+
+            };
             Debug.Log(this.heroController);
         }
         // Update is called once per frame
@@ -83,10 +93,10 @@ namespace Test3
                     }
                     
                     Debug.LogFormat("this.monsterList.Count: {0}", this.monsterList.Count);
-                    if (this.monsterList.Count <= 0)
+                    if (this.monsterList.Count <= 0&&this.isExisted==true)
                     {
-                        
-                            this.CreatePortal();
+                         this.CreatePortal();
+                         isExisted = false;
                         
                     }
                 }
@@ -102,8 +112,27 @@ namespace Test3
         {
             int x = Random.Range(-4, 4);
             int z = Random.Range(-4, 4);
+            
             GameObject portalGo = Instantiate(portalPrefab);
             portalGo.transform.position = new Vector3(x, 0, z);
+            
+        }
+        private IEnumerator FadeOut()
+        {
+            Color color = this.fadeout.color;
+
+            while (true)
+            {
+                color.a += 0.01f;
+                this.fadeout.color = color;
+
+                if (this.fadeout.color.a >= 1)//완전 까매지면
+                {
+                    break;
+                }
+                yield return null;
+            }
+            Debug.LogFormat("fadeout complete!");
         }
     }
 }

@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 namespace Test3
 {
@@ -10,10 +13,12 @@ namespace Test3
         private Vector3 targetPosition;
         private Coroutine moveRoutine;
         private Animator anim;
+        public System.Action onTriggerPortal;
         // Start is called before the first frame update
         void Start()
         {
             this.anim = this.GetComponent<Animator>();
+            
         }
 
         // Update is called once per frame
@@ -55,9 +60,19 @@ namespace Test3
         }
         private void OnTriggerEnter(Collider other)
         {
+            var item = other.gameObject.GetComponent<ItemController>();
             
-                Debug.Log("아이템 지나침");
-            
+            if (item != null)
+            {
+                Debug.LogFormat("<color=red>{0}아이템 지나침</color>",item.ItemType);
+                other.gameObject.SetActive(false);
+            }
+            else if (other.gameObject.tag == "Portal")
+            {
+                
+                SceneManager.LoadScene("Test_BossScene");
+                
+            }
         }
     }
 }

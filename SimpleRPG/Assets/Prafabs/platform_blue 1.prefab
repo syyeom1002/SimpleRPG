@@ -9,9 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8173874719946500051}
+  - component: {fileID: 298236737966932658}
   m_Layer: 0
   m_Name: platform_blue 1
-  m_TagString: Untagged
+  m_TagString: Portal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -30,9 +31,30 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2180162146300614921}
-  - {fileID: 6267880289314004040}
+  - {fileID: 4746169356265709328}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &298236737966932658
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1886383760579220434}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.5, y: 1.5, z: 1.5}
+  m_Center: {x: 0, y: 0.54, z: 0}
 --- !u!1001 &2893653921521758855
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -105,7 +127,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 6267880289314004040}
+    m_TransformParent: {fileID: 4746169356265709328}
     m_Modifications:
     - target: {fileID: 56414291010799414, guid: b8b2baf1f265f274b856c17ff47f86a3, type: 3}
       propertyPath: m_LocalScale.x
@@ -245,7 +267,7 @@ PrefabInstance:
       addedObject: {fileID: 3000665203245968533}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b430e53205963894e9648a8f417340d2, type: 3}
---- !u!4 &6267880289314004040 stripped
+--- !u!4 &4746169356265709328 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9138833899550650063, guid: b430e53205963894e9648a8f417340d2, type: 3}
   m_PrefabInstance: {fileID: 4543690986845139423}
