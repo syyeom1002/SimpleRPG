@@ -85,7 +85,9 @@ namespace Test3
                     Debug.LogFormat("this.monsterList.Count: {0}", this.monsterList.Count);
                     if (this.monsterList.Count <= 0)
                     {
-                        this.CreatePortal();
+                        
+                            this.CreatePortal();
+                        
                     }
                 }
                 

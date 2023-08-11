@@ -6,6 +6,7 @@ namespace Test3
 {
     public class HeroController : MonoBehaviour
     {
+        
         private Vector3 targetPosition;
         private Coroutine moveRoutine;
         private Animator anim;
@@ -50,6 +51,12 @@ namespace Test3
             }
             Debug.Log("<color=yellow>도착</color>");
             anim.SetInteger("State", 0);
+            
+        }
+        private void OnTriggerEnter(Collider other)
+        {
+            
+                Debug.Log("아이템 지나침");
             
         }
     }
