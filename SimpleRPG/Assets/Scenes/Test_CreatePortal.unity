@@ -451,6 +451,7 @@ MonoBehaviour:
   monsterGenerator: {fileID: 430400462}
   itemGenerator: {fileID: 567208433}
   portalPrefab: {fileID: 1886383760579220434, guid: 66d8e0691ed2cb74387da0e5567b3d73, type: 3}
+  fadeout: {fileID: 2045329570}
 --- !u!4 &1502491040
 Transform:
   m_ObjectHideFlags: 0
