@@ -23,6 +23,7 @@ namespace Test3
         private Image fadeout;
 
         private bool isExisted = true;
+       // private bool isTrigger = true;
         // Start is called before the first frame update
         void Start()
         {
@@ -59,8 +60,10 @@ namespace Test3
             GameObject heroGo = Instantiate(this.heroPrefab);
             this.heroController = heroGo.GetComponent<HeroController>();
             this.heroController.onTriggerPortal = () => {
-
-                this.StartCoroutine(this.FadeOut());
+                //if (isTrigger == true)
+                //{
+                    this.StartCoroutine(this.FadeOut());
+                //}
 
 
             };
@@ -97,7 +100,8 @@ namespace Test3
                     {
                          this.CreatePortal();
                          isExisted = false;
-                        
+                        //this.heroController.onTriggerPortal();
+                        //this.isTrigger = false;
                     }
                 }
                 

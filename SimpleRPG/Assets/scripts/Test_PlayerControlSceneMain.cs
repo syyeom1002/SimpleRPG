@@ -1,17 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Test;
-using UnityEngine.UI;
 
-namespace Test
-{
+using UnityEngine.UI;
+using static UnityEditor.PlayerSettings;
+using Unity.VisualScripting;
+
+
     public class Test_PlayerControlSceneMain : MonoBehaviour
     {
         [SerializeField]
         private HeroController heroController;
-        [SerializeField]
-        private Image image;
+        
+        public GameObject hitFxPrefab;
+        
+        // private List<MonsterController> monsterList;
         // Start is called before the first frame update
         void Start()
         {
@@ -21,6 +24,8 @@ namespace Test
             {
                 Debug.Log("이동을 완료했습니다.");
             };
+            
+
         }
 
         // Update is called once per frame
@@ -46,19 +51,33 @@ namespace Test
                         //몬스터랑 히어로의 거리
                         float distance = Vector3.Distance(this.heroController.transform.position, hit.collider.gameObject.transform.position);
 
-                        Debug.Log(distance);
 
                         MonsterController monsterController = hit.collider.gameObject.GetComponent<MonsterController>();
+                        monsterController.onHit = () => {
+                            Debug.Log("이펙트 생성");
+
+                            Vector3 offset = new Vector3(0, 0.5f, 0);
+                            Vector3 tpos = monsterController.transform.position + offset;
+                            Debug.LogFormat("생성위치{0}", tpos);
+                            GameObject fxGo = Instantiate(this.hitFxPrefab);
+                            fxGo.transform.position = tpos;
+
+                            fxGo.GetComponent<ParticleSystem>().Play();
+                        };
+                        
                         //몬스터랑 히어로 사정거리 반지름 더한 값
                         float sumRadius = this.heroController.radius + monsterController.radius;
 
-                        Debug.Log(sumRadius);
+                        
+                        Debug.LogFormat("distance:{0}, sumRadius:{1}", distance, sumRadius);
 
                         //사거리 안에 들어옴
                         if (distance <= sumRadius)
                         {
                             //공격
                             //이동하는거에서 벗어나야함
+                            Debug.Log("<color=red>거리안에 들어왔습니다</color>");
+                            this.heroController.Attack(monsterController);
 
                         }
                         else
@@ -73,26 +92,6 @@ namespace Test
                 }
             }
         }
-        void Fade()
-        {
-            for (float f = 1f; f >= 0; f -= 0.1f)
-            {
-                Color c = this.image.color;
-                Debug.Log(f);
-                c.a = f;
-                this.image.color = c;
-            }
-        }
-        IEnumerator CoFade()
-        {
-            for (float f = 1f; f >= 0; f -= 0.01f)
-            {
-                Color c = this.image.color;
-                Debug.Log(f);
-                c.a = f;
-                this.image.color = c;
-                yield return null;
-            }
-        }
+        
     }
-}
+
