@@ -48,8 +48,12 @@ namespace Test_Boss
                 var dis = Vector3.Distance(this.transform.position, this.target.transform.position);
                 //Debug.Log(dis);
                 this.isWithinSight = dis <= this.sight;//시야내에 들어오면 true 밖이면 false
-
+                
                 if (this.isWithinSight) {
+                    //if (dis <= 1f)
+                    //{
+                    //    this.Attack();
+                    //}
                     this.onDetectTarget();
                     break;
                 }
