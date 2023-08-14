@@ -2,15 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameEnums 
+namespace Test3
 {
-   public enum eMonsterType
+    public class GameEnums
     {
-        Turtle,Slime
-    }
+        public enum eMonsterType
+        {
+            Turtle, Slime
+        }
 
-    public enum eItemType
-    {
-        Potion,Sword,Shield
+        public enum eItemType
+        {
+            Potion, Sword, Shield
+        }
     }
 }

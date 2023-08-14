@@ -1,28 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Test3;
 
-public class ItemController : MonoBehaviour
+namespace Test3
 {
-    [SerializeField]
-    private GameEnums.eItemType itemType;
-
-    public GameEnums.eItemType ItemType
+    public class ItemController : MonoBehaviour
     {
-        get
+        [SerializeField]
+        private GameEnums.eItemType itemType;
+
+        public GameEnums.eItemType ItemType
         {
-            return this.itemType;
+            get
+            {
+                return this.itemType;
+            }
         }
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+        // Start is called before the first frame update
+        void Start()
+        {
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
     }
 }
